@@ -25,9 +25,11 @@ class Factory(models.Model):
         ("9", "其他")
     ]
     status_list = [
-        ("D","已舉報"),
-        ("F","資料不齊"),
-        ("A","待審核")
+        ("C","已舉報"),
+        ("IO","資料不齊/2016以前"),  # 沒照片，或半年未更新
+        ("CO", "資料齊全/2016以前"),
+        ("IN", "資料不齊/2016以後"),  # 沒照片，或半年未更新
+        ("CN", "資料齊全/2016以後"),  # 有照片，且是新增的都算
     ]
 
     # All  Features
@@ -45,7 +47,7 @@ class Factory(models.Model):
 
     name = models.CharField(max_length=50, blank=True, null=True)
     factory_type = models.CharField(max_length=3, choices=factory_type_list, default="9")
-    status = models.CharField(max_length=1, choices=status_list, default="A")
+    status = models.CharField(max_length=2, choices=status_list, default="IN")
     status_time = models.DateTimeField(auto_now_add=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
