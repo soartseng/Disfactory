@@ -22,3 +22,4 @@ class ModelsTestCase(TestCase):
             "full-info: row_13",
             "full-info: row_22",
         ]))
+        self.assertEqual(set([factory.status for factory in factories]), set(["IO"]))
