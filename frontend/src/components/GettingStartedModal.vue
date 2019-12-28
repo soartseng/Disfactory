@@ -38,7 +38,7 @@ export default createComponent({
 .getting-started-container .app-modal {
   top: 47px;
   max-height: calc(100% - 100px);
-  margin: 0 7px;
+  max-width: calc(100% - 20px);
   padding-top: 70px;
 
   .page h3 {
